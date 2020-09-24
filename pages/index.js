@@ -6,6 +6,7 @@ const Home = () => {
     <div>
       <Head>
         <title>NextJs Boilerplate</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
     </div>
   )
