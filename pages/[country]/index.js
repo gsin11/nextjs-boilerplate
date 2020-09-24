@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import axios from 'axios';
+import cookie from 'nookies';
 import Link from 'next/link';
 import Thumbnail from '../../components/Thumbnail';
 import Error from 'next/error';
@@ -41,7 +42,8 @@ const Home = ({shows = {}, country, statusCode}) => {
 
 Home.getInitialProps = async (context) => {
   try {
-    const {country}  = context.query;
+    const { defaultCountry } = cookie.get(context);
+    const country = context.query.country || defaultCountry;
     const response = await axios.get(`https://api.tvmaze.com/schedule?country=${country}&date=2020-09-01`);
 
     return {

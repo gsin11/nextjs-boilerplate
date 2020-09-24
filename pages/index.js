@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Router from 'next/router';
+import cookie from 'nookies';
 
 const Home = () => {
   return (
@@ -13,7 +14,9 @@ const Home = () => {
 }
 
 Home.getInitialProps = context => {
-  const country = context.query.country || 'us';
+  const { defaultCountry } = cookie.get(context);
+
+  const country = context.query.country || defaultCountry || 'us';
 
   process.browser
     ? Router.replace('/[country]', `${country}`)
