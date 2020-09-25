@@ -35,6 +35,7 @@ Cookie handling
 
 Custom font import
 
+Custom Server
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
